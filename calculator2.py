@@ -14,3 +14,5 @@ elif operation=="/":
     print(number1/number2)
 elif operation=="%":
     print(number1%number2)
+else:
+    print("input invalid")
