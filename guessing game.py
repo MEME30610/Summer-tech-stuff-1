@@ -4,7 +4,8 @@
 from random import randint
 computer=randint(1,100)
 guesses=0
-while True:
+running=True
+while running:
    
     print("choose a number between 1 and 100")
     
@@ -17,11 +18,24 @@ while True:
         guesses+=1
     elif int(number)==computer:
         print("CORRECT")
-        print("amount of guesses:", end="")
+        guesses+=1
+        print("amount of guesses:", end=" ")
         print(guesses)
         
         print("do you want to end?")
-
         end=input()
-        if end.lower=="yes":
-            break
+        if end.lower()=="yes":
+            running=False
+        else:
+            computer=randint(1,100)
+            guesses=0
+
+    if guesses==10:
+        print("no more guesses remaining")
+        print("do you want to end?")
+        end=input()
+        if end.lower()=="yes":
+            running=False
+        else:
+            computer=randint(1,100)
+            guesses=0
